@@ -1,0 +1,11 @@
+#!/bin/bash
+
+T=$(sensors | awk -F'[+.]' '/^temp1/ {print $2}' | tail -n1);
+LIM=60;
+
+echo $(sensors | awk '/^temp1/ {print $2}' | tail -n1);
+
+if [ $T -ge $LIM ]
+then
+	notify-send "Your laptop is getting too hot";
+fi

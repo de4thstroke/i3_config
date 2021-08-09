@@ -211,4 +211,4 @@ bindsym $mod+m exec simple-mtpfs --device 1 ~/usb
 bindsym $mod+u exec fusermount -u ~/usb
 
 #wallpaper
-exec_always wal -i  ~/Downloads/wp3.jpg
+exec_always wal -i  ~/Downloads/wp3.jpg 

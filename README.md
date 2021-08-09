@@ -9,7 +9,7 @@ i3blocks is a flexible and clickable status bar available with i3. I have used n
 ![Screenshot_2021-08-09_12-40-29](https://user-images.githubusercontent.com/46030987/128672030-07c8fe44-70ee-4f70-9692-d2131be9be0b.png)
 
 # Blocks
-In this repository, blocks contain the scripts that are necessary for i3blocks. Save these scripts in ~/.local/bin or /usr/bin or /bin folder.
+In this repository, blocks contain the scripts that are necessary for i3blocks. Save these scripts in ~/.local/bin or /usr/bin or /bin folder. i3bat file in Blocks folder uses font-awesome. You could install it from arch repository or using github. Font-awesome is useful if you like to have monochrome emojis in some cases.
 
 # Coloured emojis
 To have coloured emojis, first install noto-fonts-emoji. Then save the file fonts.conf as /etc/fonts/local.conf(or ~/.config/fontconfig/fonts.conf if you want to have emojis only current user) in your system. To apply new changes run fc-cache -f -v in terminal.

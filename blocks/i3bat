@@ -1,1 +1,36 @@
- 
+#!/bin/sh
+
+STAT=$(cat /sys/class/power_supply/BAT1/status)
+CAP=$(cat /sys/class/power_supply/BAT1/capacity)
+
+
+if [ $CAP -lt 15 ] && [ $STAT = "Discharging" ]
+then
+        notify-send "CHARGE YOUR LAPTOP!"
+fi
+
+case $BLOCK_BUTTON in
+        1) notify-send "$(acpi)" ;;
+esac
+
+if [ $STAT = "Charging" ]
+then
+        echo -n ⚡
+fi
+
+if [ $CAP -eq 100 ]
+then
+        echo -n " :"; echo "$CAP%" ;
+elif [ $CAP -lt 100 ] && [ $CAP -ge 75 ]
+then
+        echo -n " :"; echo "$CAP%";
+elif [ $CAP -lt 75 ] && [ $CAP -ge 40 ]
+then
+        echo -n " :"; echo "$CAP%";
+elif [ $CAP -lt 40 ] && [ $CAP -ge 15 ]
+then
+        echo -n " :"; echo "$CAP%";
+elif [ $CAP -lt 15 ] && [ $CAP -ge 0 ]
+then
+        echo -n " :"; echo "$CAP%";
+fi

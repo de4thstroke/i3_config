@@ -1,0 +1,7 @@
+#!/bin/sh
+
+curl wttr.in/madurai?format="%l:+%c+%t\n" ;
+
+case $BLOCK_BUTTON in
+	1) setsid st -e curl wttr.in/madurai 1 ;;
+esac

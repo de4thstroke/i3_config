@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ $(amixer get Master | awk '/^  Front L/ {print $6}') = "[off]" ];
+then
+	echo "🔇MUTED"
+else
+	echo -n 📢 ;  amixer sget Master | awk -F'[[%]' '/^  Front L/ {print $2"%"}'
+fi
+
+case $BLOCK_BUTTON in
+	1) i3-sensible-terminal -e alsamixer ;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo -n 🔻$(iw wlp4s0 link | grep rx | awk '{print $(NF-1) $NF}'): ;  
+echo 🔺$(iw wlp4s0 link | grep tx | awk '{print $(NF-1) $NF}')

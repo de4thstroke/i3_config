@@ -1,0 +1,11 @@
+#!/bin/sh
+
+[ -f "$HOME/.cache/netlog" ] && old="$(cat $HOME/.cache/netlog)" || old="$(echo "0 0")" 
+
+rxc=$(cat /sys/class/net/[ew]*/statistics/rx_bytes | tail -n1)
+txc=$(cat /sys/class/net/[ew]*/statistics/tx_bytes | tail -n1)
+
+rx=$((rxc - ${old%% *}))
+tx=$((txc - ${old##* }))
+echo -n "🔻$(numfmt --to=iec $rx)B"; echo "🔺$(numfmt --to=iec $tx)B" 
+echo "$rxc $txc" > "$HOME/.cache/netlog"

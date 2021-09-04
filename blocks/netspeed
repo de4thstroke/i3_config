@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo -n 🔻$(iw wlp4s0 link | grep rx | awk '{print $3$4'): ;  
-echo 🔺$(iw wlp4s0 link | grep tx | awk '{print $3$4}')
